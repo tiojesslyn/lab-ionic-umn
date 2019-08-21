@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/css/ionic.bundle.css" />
+    <style>
+        #printjumlahData {
+            display: block;
+        }
+
+        @media only screen and (min-width: 700px) {
+            #parent {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                padding: 1em;
+            }
+
+            #child {
+                position: absolute;
+                width: 50%;
+                height: 20%;
+                margin: auto;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+
+        }
+    </style>
+    <title>Budget Planner</title>
+</head>
+
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>Budget Planner</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content id="parent">
+            <ion-grid id="child" justify-content-center align-items-center>
+                <ion-row>
+                    <ion-col>
+                        <ion-card id="pengeluaran">
+                            <div padding>
+                                <div>
+                                    <ion-card-header>
+                                        <ion-card-title>Input Pengeluaran</ion-card-title>
+                                    </ion-card-header>
+                                </div>
+                                <div>
+                                    <ion-item>
+                                        <ion-input id="nama" placeholder="Nama Pengeluaran"></ion-input>
+                                    </ion-item>
+                                </div>
+                                <div class="ion-padding-top" size="8">
+                                    <ion-item>
+                                        <ion-input id="jumlah" placeholder="Jumlah Pengeluaran"></ion-input>
+                                    </ion-item>
+                                </div>
+                                <div class="ion-float-end" padding-vertical>
+                                    <ion-button onClick="clearData()" size="medium" class="btn-hapus" fill="outline"
+                                        color="danger">
+                                        <ion-icon slot="start" name="close"></ion-icon>
+                                        Hapus
+                                    </ion-button>
+                                    <ion-button onClick="addData()" size="medium" color="primary">
+                                        <ion-icon slot="start" name="add"></ion-icon>
+                                        Tambah
+                                    </ion-button>
+                                </div>
+                            </div>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+                <div id="listPengeluaran"></div>
+                <div id="totalPengeluaran" padding>
+                    Total Pengeluaran : Rp 0.00
+                </div>
+            </ion-grid>
+        </ion-content>
+        <ion-alert-controller></ion-alert-controller>
+    </ion-app>
+</body>
+
+</html>
