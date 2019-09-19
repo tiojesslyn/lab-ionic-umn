@@ -10,15 +10,21 @@ import {PlacesService} from "../places.service";
 })
 export class DiscoverPage implements OnInit {
   loadedPlaces: Place[];
+  listedLoadedPlaces: Place[];
 
   constructor(private menuCtrl: MenuController, private placesServices: PlacesService) { }
 
   ngOnInit() {
     this.loadedPlaces = this.placesServices.getPlaces();
+    this.listedLoadedPlaces = this.loadedPlaces.slice(1);
   }
 
   onOpenMenu() {
     this.menuCtrl.toggle('m1');
+  }
+
+  onFilterUpdate(event: CustomEvent<SegmentChangeEventDetail>) {
+    console.log(event.detail);
   }
 
 }
